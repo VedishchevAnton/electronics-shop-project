@@ -3,25 +3,34 @@ import pytest
 from src.item import Item
 
 
-#
-def test_item_init():
+@pytest.fixture
+def item():
+    return Item("Смартфон", 10000, 20)
+
+
+def test_item_init(item):
     """
     Тест инициации класса Item
     """
-    item1 = Item("Смартфон", 10000, 20)
-
-    assert item1.name == 'Смартфон'
-    assert item1.price == 10000
-    assert item1.quantity == 20
-    assert isinstance(item1.name, str)
-    assert isinstance(item1.price, float)
-    assert isinstance(item1.quantity, int)
+    assert item.name == 'Смартфон'
+    assert item.price == 10000
+    assert item.quantity == 20
+    assert isinstance(item.name, str)
+    assert isinstance(item.price, float)
+    assert isinstance(item.quantity, int)
 
 
-def test_item_apply_discount():
+def test_item_calculate_total_price(item):
     """
     Тест расчета общей стоимости конкретного товара
     """
-    item1 = Item("Смартфон", 10000, 20)
-    assert int(item1.price * item1.quantity) == 200000
+    assert int(item.price) * item.quantity == 200000
+
+
+def test_item_apply_discount(item):
+    """
+    Тест расчета скидки конкретного товара
+    """
+    Item.pay_rate = 0.8
+    assert item.price * Item.pay_rate == 8000.0
 
