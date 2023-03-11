@@ -32,5 +32,6 @@ def test_item_apply_discount(item):
     Тест расчета скидки конкретного товара
     """
     Item.pay_rate = 0.8
-    assert item.price * Item.pay_rate == 8000.0
+    item.apply_discount()
+    assert item.price == 8000.0
 
