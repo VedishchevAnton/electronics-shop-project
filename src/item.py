@@ -54,3 +54,13 @@ class Item:
         for data in take_from_csv():
             cls(*data)
 
+    @staticmethod
+    def string_to_number(number: str) -> int:
+        """
+        Cтатический метод, возвращающий число из числа-строки
+        """
+        return int(number.split('.')[0])
+
+
+
+
