@@ -18,6 +18,17 @@ class Item:
         self.quantity = int(quantity)
         self.all.append(self)
 
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name: str):
+        if len(self.__name) <= 10:
+            self.__name == name
+        else:
+            raise ValueError("Длина наименования товара должна быть не меньше 10 символов!")
+
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
