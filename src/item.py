@@ -55,12 +55,9 @@ class Item:
             cls(*data)
 
     @staticmethod
-    def string_to_number(number: str) -> int:
+    def string_to_number(value: str) -> int:
         """
         Cтатический метод, возвращающий число из числа-строки
         """
-        return int(number.split('.')[0])
-
-
-
+        return round(int(value[0]), 2)
 
