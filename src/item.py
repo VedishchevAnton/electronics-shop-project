@@ -1,3 +1,5 @@
+from src.utils import take_from_csv
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -23,11 +25,11 @@ class Item:
         return self.__name
 
     @name.setter
-    def name(self, name: str):
+    def name(self, name):
         if len(self.__name) <= 10:
-            self.__name == name
+            self.__name = name
         else:
-            raise ValueError("Длина наименования товара должна быть не меньше 10 символов!")
+            raise ValueError("Длина наименования товара должна быть не больше 10 символов!")
 
     def calculate_total_price(self) -> float:
         """
