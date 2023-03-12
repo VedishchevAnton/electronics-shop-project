@@ -34,3 +34,13 @@ def test_item_apply_discount(item):
     Item.pay_rate = 0.8
     item.apply_discount()
     assert item.price == 8000.0
+
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
+    assert Item.all[0].name == 'Смартфон'
+
+
+
+
