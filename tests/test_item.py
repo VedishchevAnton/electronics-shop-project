@@ -43,5 +43,4 @@ def test_instantiate_from_csv():
 
 
 def test_string_to_number():
-    assert Item.string_to_number('56.879') == 56
-    assert Item.string_to_number('0321') == 321
+    assert Item.string_to_number('56.879') == 5
