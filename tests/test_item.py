@@ -49,3 +49,9 @@ def test_string_to_number():
 def test___repr__(item):
     assert repr(item) == "Item('Смартфон', 10000, 20)"
     assert isinstance(repr(item), str)
+
+
+def test___str__(item):
+    assert str(item) == 'Смартфон'
+    assert isinstance(str(item), str)
+
