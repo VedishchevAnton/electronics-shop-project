@@ -24,6 +24,9 @@ class Item:
     def __repr__(self) -> str:
         return f"Item('{self.name}', {int(self.price)}, {self.quantity})"
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+
     @property
     def name(self):
         return self.__name
