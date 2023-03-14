@@ -1,5 +1,6 @@
 from src.utils import take_from_csv
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -19,6 +20,9 @@ class Item:
         self.price = float(price)
         self.quantity = int(quantity)
         self.all.append(self)
+
+    def __repr__(self) -> str:
+        return f"Item('{self.name}', {int(self.price)}, {self.quantity})"
 
     @property
     def name(self):
@@ -60,4 +64,3 @@ class Item:
         Cтатический метод, возвращающий число из числа-строки
         """
         return round(int(value[0]), 2)
-
