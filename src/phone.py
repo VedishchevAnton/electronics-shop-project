@@ -24,7 +24,14 @@ class Phone(Item):
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.name}', {int(self.price)}, {self.quantity}, {self.number_of_sim})"
 
+    def __radd__(self, other):
+        """
+        Метод сложение по количеству товара в магазине
+        """
+        if issubclass(self.__class__, other.__class__):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError('Cannot add')
 
-phone1 = Phone("iPhone 14", 120_000, 5, 2)
-print(phone1.__repr__())
-print(phone1.__str__())
+    def __add__(self, other):
+        return self.quantity + other.quantity
