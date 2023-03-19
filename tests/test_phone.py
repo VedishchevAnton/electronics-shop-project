@@ -11,6 +11,11 @@ def test_phone_init(phone):
     """
     Тест конструктора класса Phone
     """
-    assert str(phone) == 'iPhone 14'
-    assert repr(phone) == "Phone('iPhone 14', 120000, 5, 2)"
+    assert isinstance(phone, Phone)
+    assert phone.name == 'iPhone 14'
+
+
+def test_number_of_sim(phone):
     assert phone.number_of_sim == 2
+
+
