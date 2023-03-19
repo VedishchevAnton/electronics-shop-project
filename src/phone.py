@@ -34,4 +34,8 @@ class Phone(Item):
             raise TypeError('Cannot add')
 
     def __add__(self, other):
-        return self.quantity + other.quantity
+        if issubclass(self.__class__, other.__class__):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError('Cannot add')
+
