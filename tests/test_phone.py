@@ -1,10 +1,16 @@
 import pytest
 from src.phone import Phone
+from src.item import Item
 
 
 @pytest.fixture
 def phone():
     return Phone("iPhone 14", 120_000, 5, 2)
+
+
+@pytest.fixture
+def item():
+    return Item("Смартфон", 10000, 20)
 
 
 def test_phone_init(phone):
@@ -26,3 +32,7 @@ def test_number_of_sim(phone):
 def test___repr__(phone):
     assert repr(phone) == "Phone('iPhone 14', 120000, 5, 2)"
     assert isinstance(repr(phone), str)
+
+
+def test__radd__(phone):
+    assert issubclass(Phone, Item)
