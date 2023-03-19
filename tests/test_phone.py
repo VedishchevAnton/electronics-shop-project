@@ -8,11 +8,6 @@ def phone():
     return Phone("iPhone 14", 120_000, 5, 2)
 
 
-@pytest.fixture
-def item():
-    return Item("Смартфон", 10000, 20)
-
-
 def test_phone_init(phone):
     """
     Тест конструктора класса Phone
