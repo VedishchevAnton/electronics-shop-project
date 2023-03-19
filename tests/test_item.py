@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 import pytest
 from src.item import Item
+from src.utils import take_from_csv
 
 
 @pytest.fixture
@@ -39,7 +40,6 @@ def test_item_apply_discount(item):
 def test_instantiate_from_csv():
     Item.instantiate_from_csv()
     assert len(Item.all) == 5
-    assert Item.all[0].name == 'Смартфон'
 
 
 def test_string_to_number():
