@@ -24,18 +24,8 @@ class Phone(Item):
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.name}', {int(self.price)}, {self.quantity}, {self.number_of_sim})"
 
-    def __radd__(self, other):
-        """
-        Метод сложение по количеству товара в магазине
-        """
-        if issubclass(self.__class__, other.__class__):
-            return self.quantity + other.quantity
-        else:
-            raise TypeError('Складывать можно только объекты Item и дочерние от них')
-
     def __add__(self, other):
         if isinstance(other, Phone):
             return self.quantity + other.quantity
         else:
             raise TypeError('Складывать можно только объекты Phone')
-
