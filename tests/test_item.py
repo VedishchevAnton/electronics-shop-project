@@ -55,3 +55,6 @@ def test___str__(item):
     assert str(item) == 'Смартфон'
     assert isinstance(str(item), str)
 
+
+def test__add__(item):
+    assert isinstance(item, Item)
