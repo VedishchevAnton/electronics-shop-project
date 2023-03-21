@@ -29,5 +29,5 @@ def test___repr__(phone):
     assert isinstance(repr(phone), str)
 
 
-def test__radd__(phone):
-    assert issubclass(Phone, Item)
+def test__add__(phone):
+    assert isinstance(Phone, Item)
