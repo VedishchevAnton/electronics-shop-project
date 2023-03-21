@@ -67,3 +67,12 @@ class Item:
         Cтатический метод, возвращающий число из числа-строки
         """
         return round(int(value[0]), 2)
+
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError('Складывать можно только объекты Item и дочерние от них')
+
+
+
