@@ -31,11 +31,11 @@ class Phone(Item):
         if issubclass(self.__class__, other.__class__):
             return self.quantity + other.quantity
         else:
-            raise TypeError('Cannot add')
+            raise TypeError('Складывать можно только объекты Item и дочерние от них')
 
     def __add__(self, other):
-        if issubclass(self.__class__, other.__class__):
+        if isinstance(other, Phone):
             return self.quantity + other.quantity
         else:
-            raise TypeError('Cannot add')
+            raise TypeError('Складывать можно только объекты Phone')
 
