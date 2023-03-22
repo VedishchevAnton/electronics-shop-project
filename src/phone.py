@@ -28,4 +28,4 @@ class Phone(Item):
         if isinstance(other, Phone):
             return self.quantity + other.quantity
         else:
-            raise TypeError('Складывать можно только объекты Phone')
+            raise ValueError('Складывать можно только объекты Phone')
