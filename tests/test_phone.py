@@ -30,5 +30,5 @@ def test___repr__(phone):
 
 
 def test__add__(phone):
-    if isinstance(phone, Phone):
-        assert phone + phone
+    assert phone + phone == 10
+    assert isinstance(phone, Phone)
