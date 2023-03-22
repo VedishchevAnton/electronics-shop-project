@@ -30,4 +30,5 @@ def test___repr__(phone):
 
 
 def test__add__(phone):
-    assert isinstance(Phone, Item)
+    if isinstance(phone, Phone):
+        assert phone + phone
