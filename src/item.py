@@ -72,7 +72,7 @@ class Item:
         if isinstance(other, Item):
             return self.quantity + other.quantity
         else:
-            raise TypeError('Складывать можно только объекты Item и дочерние от них')
+            raise ValueError('Складывать можно только объекты Item и дочерние от них')
 
 
 
