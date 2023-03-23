@@ -13,7 +13,7 @@ class MixinLanguage:
         """
         if self.__language == "EN":
             self.__language = "RU"
-        elif self.__language == "RU":
+        else:
             self.__language = "EN"
         return self
 
