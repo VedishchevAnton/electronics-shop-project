@@ -1,8 +1,8 @@
 from src.item import Item
-from src.mixin import Mixinlanguage
+from src.mixin import MixinLanguage
 
 
-class KeyBoard(Item, Mixinlanguage):
+class KeyBoard(Item, MixinLanguage):
     """
     Класс для товара “клавиатура”
     """
