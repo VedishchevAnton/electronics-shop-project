@@ -1,4 +1,4 @@
-class Mixinlanguage:
+class MixinLanguage:
 
     """
     Класс по хранению и изменению раскладки клавиатуры
