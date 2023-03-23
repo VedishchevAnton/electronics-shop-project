@@ -22,8 +22,9 @@ class MixinLanguage:
         return self.__language
 
     @language.setter
-    def language(self, selected_lang):
-        if selected_lang == "EN" or selected_lang == "RU":
-            self.__language = selected_lang
+    def language(self, selected_language):
+        if selected_language == "RU" or selected_language == "EN":
+            self.__language = selected_language
         else:
-            return AttributeError("Всего поддерживается два языка: `EN` и `RU`")
+            raise AttributeError("Всего поддерживается два языка: `EN` и `RU`")
+
