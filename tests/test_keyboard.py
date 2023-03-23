@@ -15,3 +15,7 @@ def test__init__(test_keyboard):
     assert str(test_keyboard.language) == "EN"
 
 
+def test_change_lang(test_keyboard):
+    """Тест метода смены языка"""
+    test_keyboard.change_lang()
+    assert str(test_keyboard.language) == "RU"
