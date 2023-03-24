@@ -30,5 +30,10 @@ def test___repr__(phone):
 
 
 def test__add__(phone):
+    class Test_class:
+        pass
+
     assert phone + phone == 10
-    assert isinstance(phone, Phone)
+    test = Test_class()
+    with pytest.raises(ValueError):
+        phone + test
