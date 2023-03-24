@@ -59,4 +59,11 @@ def test___str__(item):
 def test__add__(item):
     phone = Phone("iPhone 14", 120_000, 5, 2)
     assert item + phone == 25
-    assert issubclass(Phone, Item)
+
+    class Test_class:
+        pass
+
+    with pytest.raises(ValueError):
+        test = Test_class()
+        item + test
+        phone + test
