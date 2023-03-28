@@ -1,4 +1,5 @@
 import csv
+from src.csv_error import InstantiateCSVError
 
 
 class Item:
@@ -64,10 +65,10 @@ class Item:
                 for elem in data_csv:
                     if elem == 3:
                         cls.all.append(elem)
-                    else:
-                        raise InstantiateCSVError
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
+        except InstantiateCSVError(Exception):
+            print('Файл item.csv поврежден')
 
     @staticmethod
     def string_to_number(value: str) -> int:
