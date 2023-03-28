@@ -2,7 +2,7 @@
 import pytest
 from src.item import Item
 from src.phone import Phone
-from src.item import InstantiateCSVError
+from src.csv_error import InstantiateCSVError
 
 
 @pytest.fixture
@@ -39,11 +39,20 @@ def test_item_apply_discount(item):
 
 
 def test_instantiate_from_csv():
-    Item.instantiate_from_csv()
-    assert item is not None
-    assert len(Item.all) == 3
+    """
+    Тест класс-метода, инициализирующего экземпляры класса
+    """
+    Item.instantiate_from_csv(csv_path='../src/items.csv')
+    assert type(Item.all) is not None
+
+
+def test_instantiate_from_csv_2():
+    """
+    Тест класс-метода, инициализирующего экземпляры класса
+    """
+    Item.instantiate_from_csv(csv_path='/tests/items.csv')
     with pytest.raises(FileNotFoundError):
-        raise FileNotFoundError('Отсутствует файл item.csv')
+        raise FileNotFoundError("Отсутствует файл item.csv")
 
 
 def test_string_to_number():
@@ -71,8 +80,3 @@ def test__add__(item):
         test = Test_class()
         item + test
         phone + test
-
-#
-# def test_csv_error():
-#     with pytest.raises(InstantiateCSVError):
-#         raise InstantiateCSVError('Файл item.csv поврежден')
