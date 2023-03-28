@@ -1,4 +1,3 @@
-from src.utils import take_from_csv
 import csv
 
 
