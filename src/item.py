@@ -1,6 +1,16 @@
 import csv
 
 
+class InstantiateCSVError(Exception):
+    """Класс-исключение для проверки файлов .csv"""
+
+    def __init__(self, *args) -> None:
+        self.message = args[0] if args else 'Файл item.csv поврежден'
+
+    def __str__(self) -> str:
+        return self.message
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -54,7 +64,7 @@ class Item:
         self.price = int(self.price * self.pay_rate)
 
     @classmethod
-    def instantiate_from_csv(cls, csv_path="'../src/items.csv'") -> None:
+    def instantiate_from_csv(cls, csv_path="../src/items.csv") -> None:
         """
         Получение данных из файла csv
         """
@@ -62,10 +72,10 @@ class Item:
             with open(csv_path, 'r', newline="") as csvfile:
                 data_csv = csv.reader(csvfile, delimiter=',')
                 for elem in data_csv:
-                    if elem[0] == 'name':
-                        continue
-                    else:
+                    if elem == 3:
                         cls.all.append(elem)
+                    else:
+                        raise InstantiateCSVError
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
 
