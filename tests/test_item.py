@@ -2,6 +2,7 @@
 import pytest
 from src.item import Item
 from src.phone import Phone
+from src.item import InstantiateCSVError
 
 
 @pytest.fixture
@@ -70,3 +71,8 @@ def test__add__(item):
         test = Test_class()
         item + test
         phone + test
+
+#
+# def test_csv_error():
+#     with pytest.raises(InstantiateCSVError):
+#         raise InstantiateCSVError('Файл item.csv поврежден')
