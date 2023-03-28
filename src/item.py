@@ -1,4 +1,5 @@
 from src.utils import take_from_csv
+import csv
 
 
 class Item:
@@ -54,13 +55,20 @@ class Item:
         self.price = int(self.price * self.pay_rate)
 
     @classmethod
-    def instantiate_from_csv(cls) -> None:
+    def instantiate_from_csv(cls, csv_path="'../src/items.csv'") -> None:
         """
-        Класс-метод, инициализирующий экземпляры класса
+        Получение данных из файла csv
         """
-        cls.all = []
-        for data in take_from_csv():
-            cls(*data)
+        try:
+            with open(csv_path, 'r', newline="") as csvfile:
+                data_csv = csv.reader(csvfile, delimiter=',')
+                for elem in data_csv:
+                    if elem[0] == 'name':
+                        continue
+                    else:
+                        cls.all.append(elem)
+        except FileNotFoundError:
+            print("Отсутствует файл item.csv")
 
     @staticmethod
     def string_to_number(value: str) -> int:
@@ -74,6 +82,3 @@ class Item:
             return self.quantity + other.quantity
         else:
             raise ValueError('Складывать можно только объекты Item и дочерние от них')
-
-
-
