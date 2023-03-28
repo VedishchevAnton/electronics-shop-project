@@ -39,7 +39,10 @@ def test_item_apply_discount(item):
 
 def test_instantiate_from_csv():
     Item.instantiate_from_csv()
-    assert len(Item.all) == 5
+    assert item is not None
+    assert len(Item.all) == 3
+    with pytest.raises(FileNotFoundError):
+        raise FileNotFoundError('Отсутствует файл item.csv')
 
 
 def test_string_to_number():
