@@ -66,14 +66,16 @@ class Item:
                 for elem in data_csv:
                     if elem == 3:
                         cls.all.append(elem)
+                    elif elem != 3:
+                        raise InstantiateCSVError
                     else:
-                        if elem != 3:
-                            raise InstantiateCSVError
-        except FileNotFoundError:
-            print("Отсутствует файл item.csv")
+                        cls.all = []
+                        raise FileNotFoundError
         except InstantiateCSVError:
             csv_error = InstantiateCSVError()
             print(csv_error)
+        except FileNotFoundError:
+            print("Отсутствует файл item.csv")
 
     @staticmethod
     def string_to_number(value: str) -> int:
