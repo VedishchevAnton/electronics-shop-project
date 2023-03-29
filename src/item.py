@@ -67,9 +67,13 @@ class Item:
                     if elem == 3:
                         cls.all.append(elem)
                     else:
-                        raise InstantiateCSVError('Файл item.csv поврежден')
+                        if elem != 3:
+                            raise InstantiateCSVError
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
+        except InstantiateCSVError:
+            csv_error = InstantiateCSVError()
+            print(csv_error)
 
     @staticmethod
     def string_to_number(value: str) -> int:
