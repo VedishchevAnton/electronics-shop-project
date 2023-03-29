@@ -1,5 +1,6 @@
 import csv
 from src.csv_error import InstantiateCSVError
+from src.file import FILE_CSV_PATH
 
 
 class Item:
@@ -55,20 +56,20 @@ class Item:
         self.price = int(self.price * self.pay_rate)
 
     @classmethod
-    def instantiate_from_csv(cls, csv_path="../src/items.csv") -> None:
+    def instantiate_from_csv(cls) -> None:
         """
         Получение данных из файла csv
         """
         try:
-            with open(csv_path, 'r', newline="") as csvfile:
+            with open(FILE_CSV_PATH, 'r', newline="") as csvfile:
                 data_csv = csv.reader(csvfile, delimiter=',')
                 for elem in data_csv:
                     if elem == 3:
                         cls.all.append(elem)
+                    else:
+                        raise InstantiateCSVError('Файл item.csv поврежден')
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
-        except InstantiateCSVError(Exception):
-            print('Файл item.csv поврежден')
 
     @staticmethod
     def string_to_number(value: str) -> int:
