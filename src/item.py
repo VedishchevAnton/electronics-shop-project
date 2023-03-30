@@ -68,11 +68,11 @@ class Item:
                         cls.all.append(elem)
                     else:
                         raise InstantiateCSVError
-        except InstantiateCSVError():
-            csv_error = InstantiateCSVError()
-            print(csv_error)
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
+        except InstantiateCSVError(Exception):
+            print("Файл item.csv поврежден")
+
 
     @staticmethod
     def string_to_number(value: str) -> int:
