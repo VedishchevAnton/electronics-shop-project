@@ -74,8 +74,6 @@ class Item:
             csv_error = InstantiateCSVError()
             print(csv_error)
 
-
-
     @staticmethod
     def string_to_number(value: str) -> int:
         """
