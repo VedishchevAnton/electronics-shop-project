@@ -1,5 +1,4 @@
 import csv
-import os
 from src.csv_error import InstantiateCSVError
 from src.file import FILE_CSV_PATH
 
@@ -69,6 +68,9 @@ class Item:
                         cls.all.append(elem)
                     else:
                         raise InstantiateCSVError
+        except InstantiateCSVError():
+            csv_error = InstantiateCSVError()
+            print(csv_error)
         except FileNotFoundError:
             print("Отсутствует файл item.csv")
 
